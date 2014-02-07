@@ -31,6 +31,9 @@ endef
 
 $(eval $(call download_target,libvirt-python))
 
+# install libvirt-devel
+$(shell yum localinstall $(FAKEROOT)/RPMS/libvirt-devel-1.2.1-0.rpm)
+
 sources: $(ALL) 
 .PHONY: sources
 
