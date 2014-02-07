@@ -31,9 +31,6 @@ endef
 
 $(eval $(call download_target,libvirt-python))
 
-# install libvirt-devel
-$(shell yum localinstall /longbuildroot/RPMS/x86_64/libvirt-devel-1.2.1-0.x86_64.rpm /longbuildroot/RPMS/x86_64/libvirt-client-1.2.1-0.x86_64.rpm /longbuildroot/RPMS/x86_64/libvirt-docs-1.2.1-0.x86_64.rpm)
-
 sources: $(ALL) 
 .PHONY: sources
 
