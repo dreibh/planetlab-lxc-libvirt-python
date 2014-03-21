@@ -2,7 +2,7 @@
 
 %define mainstream_version 1.2.1
 %define module_version_varname mainstream_version
-%define taglevel 0
+%define taglevel 1
 
 # Disable python 3 bindings
 %define with_python3 0
@@ -85,4 +85,7 @@ rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
 %endif
 
 %changelog
+* Fri Mar 21 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.1-1
+- builds fine on f{18,20}
+
 
