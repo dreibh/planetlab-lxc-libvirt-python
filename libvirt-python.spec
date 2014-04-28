@@ -2,7 +2,7 @@
 
 %define mainstream_version 1.2.3
 %define module_version_varname mainstream_version
-%define taglevel 1
+%define taglevel 0
 
 # Disable python 3 bindings
 %define with_python3 0
