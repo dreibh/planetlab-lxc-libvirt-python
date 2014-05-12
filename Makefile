@@ -2,9 +2,9 @@ WEBFETCH                := wget
 SHA1SUM                 := sha1sum
 
 ALL                     += libvirt-python
-libvirt-python-URL1    := http://mirror.onelab.eu/third-party/libvirt-python-1.2.3.tar.gz
-libvirt-python-URL2    := http://planet-lab.org/third-party/libvirt-python-1.2.3.tar.gz
-libvirt-python-SHA1SUM        := a97fe15f22f5dd9ca1d5ef48e6e5e302be372feb
+libvirt-python-URL1    := http://mirror.onelab.eu/third-party/libvirt-python-1.2.4.tar.gz
+libvirt-python-URL2    := http://planet-lab.org/third-party/libvirt-python-1.2.4.tar.gz
+libvirt-python-SHA1SUM        := 1c41027fac688cd2d6e8ae01819acc4317352db5
 libvirt-python                := $(notdir $(libvirt-python-URL1))
 
 all: $(ALL)
