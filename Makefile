@@ -2,10 +2,10 @@ WEBFETCH                := wget
 SHA1SUM                 := sha1sum
 
 ALL                     += libvirt-python
-libvirt-python-URL1    := http://mirror.onelab.eu/third-party/libvirt-python-1.2.4.tar.gz
-libvirt-python-URL2    := http://planet-lab.org/third-party/libvirt-python-1.2.4.tar.gz
-libvirt-python-SHA1SUM        := 1c41027fac688cd2d6e8ae01819acc4317352db5
-libvirt-python                := $(notdir $(libvirt-python-URL1))
+libvirt-python-URL1     := http://mirror.onelab.eu/third-party/libvirt-python-1.2.5.tar.gz
+libvirt-python-URL2     := http://planet-lab.org/third-party/libvirt-python-1.2.5.tar.gz
+libvirt-python-SHA1SUM  := d49b95eb68325bdd8ff677946640fc08685e6d19
+libvirt-python          := $(notdir $(libvirt-python-URL1))
 
 all: $(ALL)
 .PHONY: all
@@ -62,4 +62,3 @@ clean:
 +%: varname=$(subst +,,$@)
 +%:
 		@echo "$($(varname))"
-

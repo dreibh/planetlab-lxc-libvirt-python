@@ -1,8 +1,8 @@
 # -*- rpm-spec -*-
 
-%define mainstream_version 1.2.4
+%define mainstream_version 1.2.5
 %define module_version_varname mainstream_version
-%define taglevel 1
+%define taglevel 0
 
 # Disable python 3 bindings
 %define with_python3 0
@@ -85,9 +85,6 @@ rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
 %endif
 
 %changelog
-* Mon Jun 02 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.4-1
-- using 1.2.4
-
 * Mon Apr 28 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.3-2
 - 1.2.3
 
