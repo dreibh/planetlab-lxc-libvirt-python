@@ -1,6 +1,6 @@
 # -*- rpm-spec -*-
 
-%define mainstream_version 1.2.5
+%define mainstream_version 1.2.6
 %define module_version_varname mainstream_version
 %define taglevel 0
 
@@ -15,9 +15,7 @@ Source0: http://libvirt.org/sources/python/%{name}-%{version}.tar.gz
 Url: http://libvirt.org
 License: LGPLv2+
 Group: Development/Libraries
-BuildRequires: libvirt-devel
-# !!!!!
-# = %{version}-%{release}
+BuildRequires: libvirt-devel = %{version}-%{release}
 BuildRequires: python-devel
 %if %{with_python3}
 BuildRequires: python3-devel
