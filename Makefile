@@ -4,7 +4,7 @@ SHA1SUM                 := sha1sum
 ALL                     += libvirt-python
 libvirt-python-URL1     := http://libvirt.org/sources/python/libvirt-python-1.2.6.tar.gz
 libvirt-python-URL2     := http://mirror.onelab.eu/third-party/libvirt-python-1.2.6.tar.gz
-libvirt-python-SHA1SUM  := 446b435fc7fdc572b4b8a1c82f43b327
+libvirt-python-SHA1SUM  := c42c92aa4c102045e6815ca4116ed1a867d30c1b
 libvirt-python          := $(notdir $(libvirt-python-URL1))
 
 all: $(ALL)
