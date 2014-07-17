@@ -2,7 +2,7 @@
 
 %define mainstream_version 1.2.5
 %define module_version_varname mainstream_version
-%define taglevel 0
+%define taglevel 1
 
 # Disable python 3 bindings
 %define with_python3 0
@@ -85,6 +85,9 @@ rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
 %endif
 
 %changelog
+* Thu Jul 17 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.5-1
+- mainstream as-is
+
 * Mon Apr 28 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.3-2
 - 1.2.3
 
