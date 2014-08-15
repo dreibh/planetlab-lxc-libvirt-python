@@ -1,32 +1,31 @@
 # -*- rpm-spec -*-
 
-%define mainstream_version 1.2.6
+%define mainstream_version 1.2.7
 %define module_version_varname mainstream_version
 %define taglevel 0
+%define packager PlanetLab/OneLab/NorNet
 
-# Disable python 3 bindings
 %define with_python3 0
+%if 0%{?fedora} > 18
+%define with_python3 1
+%endif
 
 Summary: The libvirt virtualization API python2 binding
 Name: libvirt-python
-Version: %{mainstream_version}
-Release: %{taglevel}
+Version: 1.2.7
+Release: 1%{?dist}%{?extra_release}
 Source0: http://libvirt.org/sources/python/%{name}-%{version}.tar.gz
 Url: http://libvirt.org
 License: LGPLv2+
 Group: Development/Libraries
-BuildRequires: libvirt-devel
+BuildRequires: libvirt-devel >= 0.9.11
 BuildRequires: python-devel
+BuildRequires: python-nose
+BuildRequires: python-lxml
 %if %{with_python3}
 BuildRequires: python3-devel
-%endif
-
-%if %{with_python3}
-%package -n libvirt-python3
-Summary: The libvirt virtualization API python3 binding
-Url: http://libvirt.org
-License: LGPLv2+
-Group: Development/Libraries
+BuildRequires: python3-nose
+BuildRequires: python3-lxml
 %endif
 
 # Don't want provides for python shared objects
@@ -40,6 +39,12 @@ supplied by the libvirt library to use the virtualization capabilities
 of recent versions of Linux (and other OSes).
 
 %if %{with_python3}
+%package -n libvirt-python3
+Summary: The libvirt virtualization API python3 binding
+Url: http://libvirt.org
+License: LGPLv2+
+Group: Development/Libraries
+
 %description -n libvirt-python3
 The libvirt-python package contains a module that permits applications
 written in the Python programming language to use the interface
@@ -63,6 +68,12 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
 %endif
 rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
 
+%check
+%{__python} setup.py test
+%if %{with_python3}
+%{__python3} setup.py test
+%endif
+
 %files
 %defattr(-,root,root)
 %doc ChangeLog AUTHORS NEWS README COPYING COPYING.LESSER examples/
@@ -85,10 +96,3 @@ rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
 %endif
 
 %changelog
-* Mon Apr 28 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.3-2
-- 1.2.3
-
-* Fri Mar 21 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.1-1
-- builds fine on f{18,20}
-
-
