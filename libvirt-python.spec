@@ -1,9 +1,12 @@
 # -*- rpm-spec -*-
 
-%define mainstream_version 1.2.7
+%define mainstream_version 1.2.8
 %define module_version_varname mainstream_version
 %define taglevel 0
-%define packager PlanetLab/OneLab/NorNet
+
+# Disable python 3 bindings
+%define with_python3 0
+
 
 %define with_python3 0
 %if 0%{?fedora} > 18
@@ -12,7 +15,7 @@
 
 Summary: The libvirt virtualization API python2 binding
 Name: libvirt-python
-Version: 1.2.7
+Version: 1.2.8
 Release: 1%{?dist}%{?extra_release}
 Source0: http://libvirt.org/sources/python/%{name}-%{version}.tar.gz
 Url: http://libvirt.org
