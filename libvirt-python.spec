@@ -7,12 +7,6 @@
 # Disable python 3 bindings
 %define with_python3 0
 
-
-# %define with_python3 0
-# %if 0%{?fedora} > 18
-# %define with_python3 1
-# %endif
-
 Summary: The libvirt virtualization API python2 binding
 Name: libvirt-python
 Version: 1.2.8
@@ -25,11 +19,11 @@ BuildRequires: libvirt-devel >= 0.9.11
 BuildRequires: python-devel
 BuildRequires: python-nose
 BuildRequires: python-lxml
-%if %{with_python3}
-BuildRequires: python3-devel
-BuildRequires: python3-nose
-BuildRequires: python3-lxml
-%endif
+# %if %{with_python3}
+# BuildRequires: python3-devel
+# BuildRequires: python3-nose
+# BuildRequires: python3-lxml
+# %endif
 
 # Don't want provides for python shared objects
 %{?filter_provides_in: %filter_provides_in %{python_sitearch}/.*\.so}
