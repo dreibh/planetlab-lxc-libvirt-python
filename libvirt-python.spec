@@ -1,6 +1,6 @@
 # -*- rpm-spec -*-
 
-%define mainstream_version 1.2.8
+%define mainstream_version 1.2.10
 %define module_version_varname mainstream_version
 %define taglevel 0
 
@@ -9,7 +9,7 @@
 
 Summary: The libvirt virtualization API python2 binding
 Name: libvirt-python
-Version: 1.2.8
+Version: 1.2.10
 Release: 1%{?dist}%{?extra_release}
 Source0: http://libvirt.org/sources/python/%{name}-%{version}.tar.gz
 Url: http://libvirt.org
@@ -19,11 +19,11 @@ BuildRequires: libvirt-devel >= 0.9.11
 BuildRequires: python-devel
 BuildRequires: python-nose
 BuildRequires: python-lxml
-# %if %{with_python3}
-# BuildRequires: python3-devel
-# BuildRequires: python3-nose
-# BuildRequires: python3-lxml
-# %endif
+%if %{with_python3}
+BuildRequires: python3-devel
+BuildRequires: python3-nose
+BuildRequires: python3-lxml
+%endif
 
 # Don't want provides for python shared objects
 %{?filter_provides_in: %filter_provides_in %{python_sitearch}/.*\.so}
