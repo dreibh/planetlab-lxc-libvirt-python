@@ -1,11 +1,14 @@
 # -*- rpm-spec -*-
 
-%define mainstream_version 1.2.5
+%define mainstream_version 1.2.11
 %define module_version_varname mainstream_version
 %define taglevel 1
 
 # Disable python 3 bindings
 %define with_python3 0
+%if 0%{?fedora} > 18
+%define with_python3 1
+%endif
 
 Summary: The libvirt virtualization API python2 binding
 Name: libvirt-python
@@ -17,16 +20,12 @@ License: LGPLv2+
 Group: Development/Libraries
 BuildRequires: libvirt-devel = %{version}-%{release}
 BuildRequires: python-devel
+BuildRequires: python-nose
+BuildRequires: python-lxml
 %if %{with_python3}
 BuildRequires: python3-devel
-%endif
-
-%if %{with_python3}
-%package -n libvirt-python3
-Summary: The libvirt virtualization API python3 binding
-Url: http://libvirt.org
-License: LGPLv2+
-Group: Development/Libraries
+BuildRequires: python3-nose
+BuildRequires: python3-lxml
 %endif
 
 # Don't want provides for python shared objects
@@ -40,6 +39,12 @@ supplied by the libvirt library to use the virtualization capabilities
 of recent versions of Linux (and other OSes).
 
 %if %{with_python3}
+%package -n libvirt-python3
+Summary: The libvirt virtualization API python3 binding
+Url: http://libvirt.org
+License: LGPLv2+
+Group: Development/Libraries
+
 %description -n libvirt-python3
 The libvirt-python package contains a module that permits applications
 written in the Python programming language to use the interface
