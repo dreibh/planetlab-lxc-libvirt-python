@@ -1,21 +1,26 @@
 # -*- rpm-spec -*-
 
-%define mainstream_version 1.2.10
+%define mainstream_version 1.2.11
 %define module_version_varname mainstream_version
-%define taglevel 0
+%define taglevel 2
 
 # Disable python 3 bindings
 %define with_python3 0
+%if 0%{?fedora} > 18
+# turning this off as we do not need it in PL for now
+#%define with_python3 1
+%define with_python3 0
+%endif
 
 Summary: The libvirt virtualization API python2 binding
 Name: libvirt-python
-Version: 1.2.10
-Release: 1%{?dist}%{?extra_release}
+Version: %{mainstream_version}
+Release: %{taglevel}
 Source0: http://libvirt.org/sources/python/%{name}-%{version}.tar.gz
 Url: http://libvirt.org
 License: LGPLv2+
 Group: Development/Libraries
-BuildRequires: libvirt-devel >= 0.9.11
+BuildRequires: libvirt-devel = %{version}-%{release}
 BuildRequires: python-devel
 BuildRequires: python-nose
 BuildRequires: python-lxml
@@ -65,12 +70,6 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
 %endif
 rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
 
-%check
-%{__python} setup.py test
-%if %{with_python3}
-%{__python3} setup.py test
-%endif
-
 %files
 %defattr(-,root,root)
 %doc ChangeLog AUTHORS NEWS README COPYING COPYING.LESSER examples/
@@ -93,3 +92,16 @@ rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
 %endif
 
 %changelog
+* Wed Feb 18 2015 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.11-2
+- 1.2.11
+
+* Thu Jul 17 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.5-1
+- mainstream as-is
+
+* Mon Apr 28 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.3-2
+- 1.2.3
+
+* Fri Mar 21 2014 Thierry Parmentelat <thierry.parmentelat@sophia.inria.fr> - libvirt-python-1.2.1-1
+- builds fine on f{18,20}
+
+
