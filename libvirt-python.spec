@@ -7,7 +7,8 @@
 
 %define with_python3 0
 %if 0%{?fedora} > 18
-%define with_python3 1
+# %define with_python3 1
+%define with_python3 0
 %endif
 
 Summary: The libvirt virtualization API python2 binding
