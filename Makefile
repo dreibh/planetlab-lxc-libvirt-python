@@ -3,10 +3,9 @@ SHA1SUM                 := sha1sum
 
 ALL                     += libvirt-python
 libvirt-python-URL1     := http://libvirt.org/sources/python/libvirt-python-1.2.16.tar.gz
-libvirt-python-URL2     := https://libvirt.org/sources/python/libvirt-python-1.2.16.tar.gz
-libvirt-python-SHA1SUM  := a1ff159010ed38272d7a917cf159b4ccdaa36959
-libvirt-python          := $(notdir $(libvirt-python-URL1))
-
+libvirt-python-URL2     := https://libvirt.org/sources/pyth20/libvirt-python-1.2.16.tar.gz
+libvirt-python-SHA1SUM  := a1ff159010ed38272d7a917cf159b4ccd2036959
+libvirt-python      f2c49d1f378382eb06529b9fe0ca555245701375
 all: $(ALL)
 .PHONY: all
 
