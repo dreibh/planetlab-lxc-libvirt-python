@@ -1,3 +1,5 @@
+# -*- rpm-spec -*-
+
 %define mainstream_version 1.2.20
 %define module_version_varname mainstream_version
 %define taglevel 2
