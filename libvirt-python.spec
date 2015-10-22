@@ -1,6 +1,4 @@
-# -*- rpm-spec -*-
-
-%define mainstream_version 1.2.16
+%define mainstream_version 1.2.20
 %define module_version_varname mainstream_version
 %define taglevel 2
 %define packager PlanetLab/OneLab/NorNet
@@ -13,7 +11,7 @@
 
 Summary: The libvirt virtualization API python2 binding
 Name: libvirt-python
-Version: 1.2.16
+Version: 1.2.20
 Release: 1%{?dist}%{?extra_release}
 Source0: http://libvirt.org/sources/python/%{name}-%{version}.tar.gz
 Url: http://libvirt.org
@@ -68,12 +66,6 @@ CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
 %{__python3} setup.py install --skip-build --root=%{buildroot}
 %endif
 rm -f %{buildroot}%{_libdir}/python*/site-packages/*egg-info
-
-%check
-%{__python} setup.py test
-%if %{with_python3}
-%{__python3} setup.py test
-%endif
 
 %files
 %defattr(-,root,root)
